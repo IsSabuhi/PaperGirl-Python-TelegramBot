@@ -20,4 +20,3 @@ def parser_file():
         with open("new_json.json", "w") as file:
             json.dump(new_json, file, indent=2, ensure_ascii=False)
 
-
