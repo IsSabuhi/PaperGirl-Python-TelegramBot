@@ -1,3 +1,4 @@
+# -*- coding: cp1251 -*-
 import json
 import logging
 
@@ -25,7 +26,7 @@ async def start(message: types.Message):
     await message.answer('Привет {0.first_name}'.format(message.from_user), reply_markup=keyboard)
 
 
-@dp.message_handler(Text(equals="Игры со скидкой EG"))
+@dp.message_handler(Text(equals="Действующие акции EG"))
 async def get_discount_Game(message: types.Message):
     await message.answer("Пожалуйста подождите...")
 
@@ -53,7 +54,15 @@ async def ShopEG(message: types.Message):
 
 @dp.message_handler(Text(equals="Информация"))
 async def Info(message: types.Message):
-    await bot.send_message(message.from_user.id, "Это кнопка пока не работает)")
+    # linkDB = hlink('PaperGirl Aya', '')
+
+    cardInfo = f"{hbold('Разработчики: ')} : Исрафилов Сабухи, Антон Силинский, Паргачёв Алексей\n" \
+               f"{hbold('Наш сайт: ')} : Здесь будет ссылка на сайт если Тоха развернет на сервак :)\n" \
+               f"{hbold('Дискорд бот: ')} : {hlink('PaperGirl Aya', '')}" \
+
+    # await message.answer(cardInfo)
+
+    await bot.send_message(message.from_user.id, cardInfo)
 
 
 if __name__ == '__main__':
