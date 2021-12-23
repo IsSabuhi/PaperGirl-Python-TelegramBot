@@ -23,9 +23,9 @@ def parser_discounts_game():
 
     for item in old_json:
         sd = item.get("promotions").get("startDate")
-        startDate = datetime.fromisoformat((sd[: -1]))
+        startDate = datetime.fromisoformat((sd[: -1])).strftime("%d-%m-%Y %H:%M:%S")
         ed = item.get("promotions").get("endDate")
-        endDate = datetime.fromisoformat((ed[: -1]))
+        endDate = datetime.fromisoformat((ed[: -1])).strftime("%d-%m-%Y %H:%M:%S")
         new_json.append({
             "url": item.get("url"),
             "title":  item.get("title"),
@@ -41,5 +41,3 @@ def parser_discounts_game():
         file.close()
 
 
-if __name__ == '__main__':
-    parser_discounts_game()
